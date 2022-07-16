@@ -31,7 +31,7 @@ class UserService {
         return axios.post(API_URL + 'logout', {})
         .then(() => {
             localStorage.removeItem('currentUser');
-            currentUserSubjectnext(null);
+            currentUserSubject.next(null);
         });
     };
 

@@ -86,3 +86,5 @@ Add import `'bootstrap/dist/css/bootstrap.min.css'` to `index.js`
 Add import `import 'font-awesome/css/font-awesome.min.css'` to `index.js`
 
 `npm install react-calendar`
+
+`npm install rxjs`

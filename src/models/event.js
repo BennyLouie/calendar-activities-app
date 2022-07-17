@@ -1,5 +1,5 @@
 export class Event {
-    constructor(date, title, description, status, username, password, id) {
+    constructor(date, status, title, description, username, password, id) {
         this.date = date;
         this.title = title;
         this.description = description;

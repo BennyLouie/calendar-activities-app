@@ -18,7 +18,7 @@ class UserService {
         //btoa: Basic64 encryption
         const headers = {
             authorization: 'Basic ' + btoa(user.username + ':' + user.password)
-        }
+        };
         return axios.get(API_URL + 'login', {headers: headers})
         .then(resp => {
             resp.data.password = user.password; //Store pure password

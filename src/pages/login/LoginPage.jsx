@@ -9,7 +9,7 @@ class LoginPage extends Component {
         super(props);
 
         if (UserService.currentUserValue) {
-            this.props.history.push('/profile');
+            this.props.history.push('/home');
             return;
         }
 
@@ -46,7 +46,7 @@ class LoginPage extends Component {
         UserService.login(user)
         .then(data => {
             //Operation completed successfully
-            this.props.history.push('/profile');
+            this.props.history.push('/home');
         }, error => {
             console.log(error);
             this.setState({

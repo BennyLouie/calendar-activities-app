@@ -9,7 +9,7 @@ class RegisterPage extends Component {
         super(props);
 
         if (UserService.currentUserValue) {
-            this.props.history.push('/profile');
+            this.props.history.push('/home');
             return;
         }
 

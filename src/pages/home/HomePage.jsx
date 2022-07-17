@@ -1,17 +1,30 @@
-import {Component} from 'react';
+import { useState } from 'react';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
-class HomePage extends Component {
-    constructor(props) {
-        super(props);
-    };
+const HomePage = props => {
+    
 
-    render() {
-        return(
+    const EventCalendar = props => {
+        const [date, setDate] = useState(new Date());
+    
+        const onChange = date => {
+            setDate(date);
+        }
+        
+        return (
             <div>
-                Home
+                <Calendar onChange={onChange} value={date} />
+                {console.log(date)}
+                {date.toString()}
             </div>
         );
+        
     }
+
+    return(
+        <EventCalendar />        
+    );
 };
 
 export {HomePage};

@@ -6,7 +6,7 @@ const API_URL = "localhost:8000/api/event/";
 class EventService {
     retrieve(event) {
         const headers = {
-            authorization: 'Basic ' + btoa(event.username + ':' + event.password)
+            authorization: 'Basic ' + Buffer.from(event.username + ':' + event.password, 'binary').toString('base64')
         };
         return axios.get(API_URL + "retrieve", {headers: headers})
             .then(resp => {

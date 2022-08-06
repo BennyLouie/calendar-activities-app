@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { BehaviorSubject } from 'rxjs';
+import { Buffer } from 'buffer';
 
 const API_URL = "http://localhost:8080/api/user/";
 
@@ -18,7 +19,7 @@ class UserService {
         //btoa: Basic64 encryption
         console.log(user)
         const headers = {
-            authorization: 'Basic ' + btoa(user.username + ':' + user.password)
+            authorization: 'Basic ' + Buffer.from(user.username + ':' + user.password, 'binary').toString('base64')
         };
         console.log(headers)
         return axios.get(API_URL + 'login', {headers: headers})

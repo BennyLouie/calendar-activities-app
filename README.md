@@ -73,18 +73,20 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Necessary Dependecies to install:
 
-`npm install --save axios` - Used for server-side communication
+`npm i --save axios` - Used for server-side communication
 
-`npm install --save react-router-dom@5` - Used for router implementation
+`npm i --save react-router-dom@5` - Used for router implementation
 
-`npm install --save bootstrap` - Used for Responsive Styling
+`npm i --save bootstrap` - Used for Responsive Styling
 
 Add import `'bootstrap/dist/css/bootstrap.min.css'` to `index.js`
 
-`npm install --save font-awesome`
+`npm i --save font-awesome`
 
 Add import `import 'font-awesome/css/font-awesome.min.css'` to `index.js`
 
-`npm install react-calendar`
+`npm i --save react-calendar`
 
-`npm install rxjs`
+`npm i --save rxjs`
+
+`npm i --save buffer`

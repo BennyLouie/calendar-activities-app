@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { BehaviorSubject } from 'rxjs';
 
-const API_URL = "localhost:8000/api/user/";
+const API_URL = "http://localhost:8080/api/user/";
 
 const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem("currentUser")));
 
@@ -16,11 +16,14 @@ class UserService {
 
     login(user) {
         //btoa: Basic64 encryption
+        console.log(user)
         const headers = {
             authorization: 'Basic ' + btoa(user.username + ':' + user.password)
         };
+        console.log(headers)
         return axios.get(API_URL + 'login', {headers: headers})
         .then(resp => {
+            console.log(resp);
             resp.data.password = user.password; //Store pure password
             localStorage.setItem('currentUser', JSON.stringify(resp.data));
             currentUserSubject.next(resp.data);

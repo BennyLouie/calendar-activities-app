@@ -15,7 +15,7 @@ const HomePage = props => {
     }
 
     const EventCalendar = props => {
-        const user = useState(UserService.currentUserValue);
+        const user = useState(UserService.currentUserValue)[0];
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         const [date, setDate] = useState(new Date());
         const [events, setEvents] = useState([]);
@@ -29,7 +29,9 @@ const HomePage = props => {
         }
 
         const retrieveEvents = () => {
-
+            EventService.retrieveEvents(user).then(resp => {
+                setEvents(resp);
+            });
         };
 
         const handleChange = e => {
@@ -40,7 +42,7 @@ const HomePage = props => {
                     [name]: value
                 }
             })
-            console.log(event)
+            // console.log(event)
         };
     
         const handleCreate = e => {
@@ -61,13 +63,16 @@ const HomePage = props => {
                 {console.log(user)}
                 <div>
                     <Calendar onChange={onChange} value={date}/>
-                    {console.log(date)}
+                    {/* {console.log(date)} */}
                     {date.toString()}
-                    {console.log(event)}
+                    {/* {console.log(event)} */}
                 </div>
                 <div className="events">
                     <div className="events-list">
-                        <EventCard />
+                        {retrieveEvents()}
+                        {events.map( event => (
+                            <EventCard event={event}/>
+                        ))}
                     </div>
                     <div className="form-container">
                         <div className="card custom-card">

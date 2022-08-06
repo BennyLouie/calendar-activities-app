@@ -1,11 +1,10 @@
 export class Event {
-    constructor(date, status, title, description, username, password, id) {
+    constructor(date, status, title, description, userid, id) {
         this.date = date;
         this.title = title;
         this.description = description;
         this.status = status;
-        this.username = username;
-        this.password = password;
+        this.userid = userid
         this.id = id;
     }
 }

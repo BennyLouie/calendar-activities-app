@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const API_URL = "localhost:8000/api/event/";
 
+//WIP
 class EventService {
     retrieve(event) {
         const headers = {

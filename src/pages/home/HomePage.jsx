@@ -9,10 +9,10 @@ import UserService from '../../services/user.service';
 
 const HomePage = props => {
 
-    // if (!UserService.currentUserValue) {
-    //     props.history.push('/login');
-    //     return;
-    // }
+    if (!UserService.currentUserValue) {
+        props.history.push('/login');
+        return;
+    }
 
     const EventCalendar = props => {
         const user = useState(UserService.currentUserValue);
@@ -29,7 +29,7 @@ const HomePage = props => {
         }
 
         const retrieveEvents = () => {
-            
+
         };
 
         const handleChange = e => {
@@ -58,6 +58,7 @@ const HomePage = props => {
         
         return (
             <div>
+                {console.log(user)}
                 <div>
                     <Calendar onChange={onChange} value={date}/>
                     {console.log(date)}
@@ -118,7 +119,7 @@ const HomePage = props => {
                                         value={event.description}
                                         onChange={(e => handleChange(e))}/>
                                     <div className="invalid-feedback">
-                                        Desctiption is required.
+                                        Description is required.
                                     </div>
                                 </div>
 

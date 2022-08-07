@@ -2,10 +2,6 @@ import { Component } from 'react';
 // import { Event } from '../models/event';
 
 export default class EventCard extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     console.log(props)
-    // }
     render() {
         return (
             <div className="event">

@@ -19,13 +19,13 @@ const HomePage = props => {
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         const [date, setDate] = useState(new Date());
         const [events, setEvents] = useState([]);
-        const [event, setEvent] = useState(new Event(date.toLocaleDateString("en-US", options), "Incomplete"));
+        const [event, setEvent] = useState(new Event(user.id, date, "Incomplete"));
         const [submitted, setSubmitted] = useState(false);
         const [errorMessage, setErrorMessage] = useState('');
     
         const onChange = date => {
             setDate(date);
-            event.date = date.toLocaleDateString("en-US", options);
+            event.date = date.toISOString().split("T")[0];
         }
 
         const retrieveEvents = () => {
@@ -48,7 +48,8 @@ const HomePage = props => {
         const handleCreate = e => {
             e.preventDefault();
             setSubmitted(true);
-
+            console.log(event)
+            console.log(new Date().toISOString().split("T")[0])
             EventService.create(event)
                 .then(data => {
                     props.history.push('/home');
@@ -60,7 +61,7 @@ const HomePage = props => {
         
         return (
             <div>
-                {console.log(user)}
+                {/* {console.log(user)} */}
                 <div>
                     <Calendar onChange={onChange} value={date}/>
                     {/* {console.log(date)} */}
@@ -93,11 +94,8 @@ const HomePage = props => {
                                         name="date" 
                                         required 
                                         placeholder='Date' 
-                                        value={date}
+                                        value={date.toISOString().split("T")[0]}
                                         readOnly/>
-                                    <div className="invalid-feedback">
-                                        A valid date is required.
-                                    </div>
                                 </div>
 
                                 <div className="form-group">

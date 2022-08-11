@@ -8,10 +8,10 @@ class LoginPage extends Component {
     constructor(props) {
         super(props);
 
-        if (UserService.currentUserValue) {
-            this.props.history.push('/home');
-            return;
-        }
+        // if (UserService.currentUserValue) {
+        //     this.props.history.push('/home');
+        //     return;
+        // }
 
         this.state = {
             user: new User('', ''),
